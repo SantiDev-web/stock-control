@@ -30,7 +30,7 @@ export default function LoginForm() {
     // Verificación de las credenciales
     if (username === userTest.username && password === userTest.password) {
       console.log("Credenciales correctas, redirigiendo...");
-      document.cookie = 'authToken=123456; path=/';
+      document.cookie = "authToken=123456; path=/";
       router.push("/dashboard");
     } else {
       console.log("Credenciales incorrectas.");
@@ -42,15 +42,18 @@ export default function LoginForm() {
     <div className="flex items-center justify-center w-full h-full">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-lg sm:max-w-md lg:max-w-lg xl:max-w-xl mx-4 sm:mx-0 mt-10 p-8 bg-white shadow-xl rounded-lg"
+        className="w-full max-w-lg sm:max-w-md lg:max-w-lg xl:max-w-xl mx-4 sm:mx-0 mt-10 p-8 bg-white/30 backdrop-blur-md shadow-2xl rounded-lg border border-white/40"
       >
-        <h2 className="text-3xl font-semibold text-center mb-6">
+        <h2 className="text-5xl font-bold text-white text-center mb-8 tracking-wide">
           Iniciar Sesión
         </h2>
-        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+        {error && <p className="text-red-400 text-sm mb-4">{error}</p>}
 
         <div className="mb-6">
-          <label htmlFor="username" className="block text-sm font-medium mb-1">
+          <label
+            htmlFor="username"
+            className="block text-lg font-medium text-white mb-2"
+          >
             Usuario
           </label>
           <Input
@@ -59,12 +62,15 @@ export default function LoginForm() {
             placeholder="Ingresa tu usuario"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-full border rounded-md px-3 py-2"
+            className="w-full border border-white/50 bg-white/20 text-white rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-white"
           />
         </div>
 
         <div className="mb-6">
-          <label htmlFor="password" className="block text-sm font-medium mb-1">
+          <label
+            htmlFor="password"
+            className="block text-lg font-medium text-white mb-2"
+          >
             Contraseña
           </label>
           <Input
@@ -73,13 +79,13 @@ export default function LoginForm() {
             placeholder="Ingresa tu contraseña"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full border rounded-md px-3 py-2"
+            className="w-full border border-white/50 bg-white/20 text-white rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-white"
           />
         </div>
 
         <Button
           type="submit"
-          className="w-full py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+          className="w-full py-3 bg-blue-500/80 text-white rounded-md hover:bg-blue-500 transition duration-300"
         >
           Iniciar Sesión
         </Button>
