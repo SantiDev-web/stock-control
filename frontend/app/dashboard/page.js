@@ -1,5 +1,10 @@
+import Header from '../components/Header'
+import Sidebar from '../components/Sidebar'
 export default function Dashboard(){
     return(
-        <h1>Hola desde el dashboard</h1>
+        <>
+        <Header/>
+        <Sidebar/>
+        </>
     )
 }
