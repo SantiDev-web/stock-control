@@ -39,7 +39,7 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="flex items-center justify-center w-full h-full">
+    <div className="flex items-center justify-center w-full h-full opacity-95">
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-lg sm:max-w-md lg:max-w-lg xl:max-w-xl mx-4 sm:mx-0 mt-10 p-8 bg-white/30 backdrop-blur-md shadow-2xl rounded-lg border border-white/40"
@@ -59,7 +59,6 @@ export default function LoginForm() {
           <Input
             id="username"
             type="text"
-            placeholder="Ingresa tu usuario"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="w-full border border-white/50 bg-white/20 text-white rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-white"
@@ -76,7 +75,6 @@ export default function LoginForm() {
           <Input
             id="password"
             type="password"
-            placeholder="Ingresa tu contraseña"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full border border-white/50 bg-white/20 text-white rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-white"
