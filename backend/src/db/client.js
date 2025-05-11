@@ -1,4 +1,4 @@
-require ('dotenv').config
+require ('dotenv').config()
 const mongoose = require('mongoose')
 const chalk = require('chalk')
 
@@ -10,7 +10,8 @@ const connectDB = async ()=>{
         await mongoose.connect(mongo_URI,{dbName: 'stockdatabase'})
         console.log(chalk.green('✅ Conectado a la base de datos'))
     }catch(error){
-        console.error(chalk.red('❌ Error al conectar con la base de datos'))
+        console.error(chalk.red('❌ Error al conectar con la base de datos: ', error.message));
+        console.error(chalk.red(error.stack));
     }
 }
 
