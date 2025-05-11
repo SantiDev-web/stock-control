@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -8,12 +9,18 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { AddComponent } from "./AddComponent";
 
-export default function components() {
+export default function Components() {
   const style = {
-    button: "bg-white",
-    table: "mg"
+    button: "bg-green-400 hover:bg-green-700",
+    table: "mg",
   };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <div className="justify-center items-center">
       <div className="text-center mb-6">
@@ -25,13 +32,16 @@ export default function components() {
         </p>
       </div>
       <div className="flex justify-end space-x-4">
-        <Button className={style.button}>➕</Button>
+        <Button onClick={openModal} className={style.button}>
+          Añadir componente
+        </Button>
         <Button className="px-4 py-2 bg-blue-600 text-white rounded shadow hover:bg-blue-700">
           Editar seleccionado
         </Button>
         <Button className="px-4 py-2 bg-red-600 text-white rounded shadow hover:bg-red-700">
           Eliminar seleccionado
         </Button>
+        <AddComponent isOpen={isModalOpen} onClose={closeModal} />
       </div>
 
       <hr className="border-t border-gray-600 mt-1" />
